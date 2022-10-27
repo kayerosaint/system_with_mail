@@ -1,0 +1,1 @@
+Script for first minimum local-system auto/manual configure (users;network;ssh;iptables;etc...)for installing Mail-in-a-box on Ubuntu 22.04. You need to edit "env" file for environments, also nm.yml because it works via netplan.

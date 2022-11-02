@@ -373,8 +373,8 @@ fi
 sudo chmod 0777 $TEMP_FILE
 sudo chmod 0777 /etc/hosts
 echo "" > $TEMP_FILE
-echo "awk -F '=' 'function t(s){gsub(/[[:space:]]/,"",s);return s};/^MAIN_IP/{m=t($2)};/^HOSTNAME/{h=t($2)};END{printf "%s   %s\n",m,h}' env" >> /etc/hosts
-echo "awk -F '=' 'function t(s){gsub(/[[:space:]]/,"",s);return s};/^WHITE_IP/{m=t($2)};/^HOSTNAME/{h=t($2)};END{printf "%s   %s\n",m,h}' env" >> /etc/hosts
+awk -F '=' 'function t(s){gsub(/[[:space:]]/,"",s);return s};/^MAIN_IP/{m=t($2)};/^HOSTNAME/{h=t($2)};END{printf "%s   %s\n",m,h}' env >> /etc/hosts
+awk -F '=' 'function t(s){gsub(/[[:space:]]/,"",s);return s};/^WHITE_IP/{m=t($2)};/^HOSTNAME/{h=t($2)};END{printf "%s   %s\n",m,h}' env >> /etc/hosts
 wait
 sudo awk '!seen[$0]++' /etc/hosts > $TEMP_FILE
 wait
